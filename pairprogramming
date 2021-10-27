@@ -1,1 +1,36 @@
 #include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+
+    const int NUM_ROWS = 10;
+    const int NUM_COLS = 10;
+    double hotPlate[NUM_ROWS][NUM_COLS];
+
+    for(int i = 0; i < NUM_ROWS; ++i) {
+        for(int j = 0; j < NUM_COLS; ++j) {
+            hotPlate[i][j] = 0;
+        }
+    }
+
+    for(int i = 1; i < (NUM_COLS - 1); ++i) {
+        hotPlate[0][i] = 100;
+    }
+
+    for(int i = 1; i < (NUM_COLS - 1); ++i) {
+        hotPlate[9][i] = 100;
+    }
+
+    for(int i = 0; i < NUM_ROWS; ++i) {
+        for(int j = 0; j < NUM_COLS; ++j) {
+            cout << setw(9) << fixed << setprecision(3) << hotPlate[i][j];
+            if (j != NUM_COLS - 1) {
+                cout << ",";
+            }
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
